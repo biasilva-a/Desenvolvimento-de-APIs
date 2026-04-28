@@ -1,5 +1,14 @@
+import  {pool} from '../config/db.js';
+
 class FrutasService {
-    getALL(){
+    async getALL(){
+        try{
+            const query = "SELECT * FROM frutas"
+            const res = await pool.query(query)
+            return res.rows;
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

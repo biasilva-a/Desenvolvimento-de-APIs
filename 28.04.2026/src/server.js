@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';    
+import { frutasRoute } from './routes/frutas.route.js';
 
 dotenv.config();
 
@@ -11,6 +12,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     return res.json("Hello World");
 });
+
+app.use('/frutas', frutasRoute);
 
 app.listen(PORT, () => {
     console.log(`API rodando em http://localhost:${PORT}`);
